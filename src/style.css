@@ -1,18 +1,24 @@
- body { height: 100vh; display:flex; align-items:center; justify-content:center; background:#f8f9fa; }
-    .container {
-      position: relative;
-      width: 400px;
-      height: 300px;
-      border: 2px dashed #aaa;
-      background: #fff;
-    }
-    .box {
-      position: absolute;
-      width: 100px;
-      height: 30px;
-      border-radius: 6px;
-      background: #3498db;
-      cursor: grab;
-      user-select: none;
-    }
-    .box.active { background:#1abc9c; cursor:grabbing; }
+board {
+ 
+  position: relative;
+  background-color: rgb(119, 119, 108);
+ cursor: pointer;
+}
+.container {
+
+  height: 300px;
+  width: 600px;
+}
+.disc {
+  position: absolute;
+  display: block;
+  background-color: rgb(114, 131, 104);
+  border: 1px solid black;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}

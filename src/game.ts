@@ -13,6 +13,7 @@ import {
   getPositionFromKey,
   memo,
   getKeyPositionFromBound,
+  getPositionKeyAtDom,
 } from './utils'
 
 export function initDiscs(): Discs {
@@ -50,6 +51,7 @@ export function gameInit(): State {
 export function createDisc(state: State, key: Key): HTMLElement {
   const disc = document.createElement('DISC')
   const p = getKeyPositionFromBound(state.bounds())(getPositionFromKey(key))
+
   disc.style.transform = `translate(${p[0]}px, ${p[1]}px)`
   disc.style.width = `${state.bounds().width / TOTAL_FILE}px`
   disc.style.height = `${state.bounds().height / TOTAL_RANK}px`

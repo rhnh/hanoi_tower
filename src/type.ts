@@ -14,6 +14,7 @@ export interface DiscElement extends HTMLElement {
 
 export const TOTAL_FILE = 3
 export const TOTAL_RANK = 9
+
 export interface State {
   discs: Discs
   selected: {

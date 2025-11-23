@@ -10,6 +10,7 @@ import {
 } from './type'
 export const TOTAL_FILE = 3
 export const TOTAL_RANK = 9
+
 export const createElement = ({
   tagName,
   className,
@@ -56,16 +57,20 @@ export const getPositionFromKey = (key: Key): Position =>
   [key.charCodeAt(0) - 97, key.charCodeAt(1) - 49] as Position
 
 export const getKeyPositionFromBound =
-  (bound: DOMRect) =>
+  (bound: DOMRectReadOnly) =>
   (position: Position): Position => {
     const x = (position[0] * bound.width) / TOTAL_FILE
     const y = (position[1] * bound.height) / TOTAL_RANK
     return [x, y]
   }
 
-export const getKeyFromPosition = (pos: Position): Key => {
-  return keys[TOTAL_FILE * pos[0] + pos[1]]
-}
+/**
+ *
+ * @param pos position in form of 0, 1 and will be multiplied  by 9 to get exact position
+ * @returns
+ */
+export const getKeyFromPosition = (pos: Position): Key =>
+  keys[TOTAL_RANK * pos[0] + pos[1]]
 
 export const getPositionKeyAtDom =
   (bounds: DOMRectReadOnly) =>

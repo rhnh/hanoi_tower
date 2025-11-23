@@ -1,4 +1,4 @@
-import type { Key, State } from './type'
+import type { State } from './type'
 import {
   Box,
   getElementByKey,
@@ -12,10 +12,9 @@ export function pointerDown(state: State): State {
   board.addEventListener('pointerdown', (e) => {
     state.selected.originX = e.clientX
     state.selected.originX = e.clientY
-    const p = getKeyFromPosition(
-      getPositionKeyAtDom(state.bounds())([e.clientX, e.clientY]),
-    )
-    const el = getElementByKey(state, p)
+    const position = getPositionKeyAtDom(state.bounds())([e.clientX, e.clientY])
+    const key = getKeyFromPosition(position)
+    const el = getElementByKey(state, key)
     console.log(el)
   })
   return state

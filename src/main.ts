@@ -1,7 +1,6 @@
-import { bindEvents } from "./events";
-import { setup, render } from "./game";
-import "./style.css";
-import { type State } from "./type";
-import { Box } from "./utils";
+import { event } from './events'
+import { gameInit, render } from './game'
+import './style.css'
+import { Box } from './utils'
 
-Box<State>(setup()).map(render).map(bindEvents);
+Box(gameInit()).map(render).map(event)

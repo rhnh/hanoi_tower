@@ -1,16 +1,44 @@
-import type { Key, Position, State } from "./type";
-import { getElementByKey, getKeyAtDomPos, pos2key } from "./utils";
+import type { Key, State } from './type'
+import {
+  Box,
+  getElementByKey,
+  getKeyFromPosition,
+  getPositionKeyAtDom,
+  id,
+} from './utils'
 
-export function bindEvents(state: State): State {
-  const board = state.board;
-  board.addEventListener("pointerdown", (e) => {
-    const position = getKeyAtDomPos(state.bounds())([
-      e.clientX,
-      e.clientY,
-    ]) as Position;
-    console.log(position, pos2key(position));
-    const selectedElement = getElementByKey(state, pos2key(position) as Key);
-    console.log(selectedElement);
-  });
-  return state;
+export function pointerDown(state: State): State {
+  const { board } = state
+  board.addEventListener('pointerdown', (e) => {
+    state.selected.originX = e.clientX
+    state.selected.originX = e.clientY
+    const p = getKeyFromPosition(
+      getPositionKeyAtDom(state.bounds())([e.clientX, e.clientY]),
+    )
+    const el = getElementByKey(state, p)
+    console.log(el)
+  })
+  return state
+}
+
+export function pointerMove(state: State): State {
+  const { board } = state
+  board.addEventListener('pointerdown', (e) => {
+    state.selected.originX = e.clientX
+    state.selected.originX = e.clientY
+  })
+  return state
+}
+
+export function pointerUp(state: State): State {
+  const { board } = state
+  board.addEventListener('pointerdown', (e) => {
+    state.selected.originX = e.clientX
+    state.selected.originX = e.clientY
+  })
+  return state
+}
+
+export function event(state: State): State {
+  return Box(state).map(pointerDown).map(pointerMove).map(pointerUp).fold(id)
 }

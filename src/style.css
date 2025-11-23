@@ -3,17 +3,21 @@ board {
   position: relative;
   background-color: rgb(119, 119, 108);
  cursor: pointer;
+ -webkit-user-select: none;
+ -moz-user-select: none;
+ -ms-user-select: none;
 }
 .container {
 
   height: 300px;
   width: 600px;
 }
-.disc {
+disc {
   position: absolute;
   display: block;
   background-color: rgb(114, 131, 104);
   border: 1px solid black;
+
 }
 
 body{
@@ -21,4 +25,31 @@ body{
   justify-content: center;
   align-items: center;
   height: 100vh;
+}
+
+.disc-1{
+  background-image: url(../public/wood.svg);
+  position: absolute;
+
+  background-size: cover;
+  /* will-change: transform; */
+  /* pointer-events: none; */
+}
+.disc-2{
+  background-image: url(../public/wood.svg);
+  position: absolute;
+
+  
+  background-size: cover;
+  /* will-change: transform; */
+  /* pointer-events: none; */
+}
+.disc-3{
+  background-image: url(../public/wood.svg);
+  position: absolute;
+
+  
+  background-size: cover;
+  /* will-change: transform; */
+  /* pointer-events: none; */
 }

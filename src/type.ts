@@ -11,24 +11,30 @@ export type Discs = Map<Key, Rank | '0'>
 export interface DiscElement extends HTMLElement {
   value: Rank
 }
+export type MouchEvent = Event & Partial<MouseEvent & TouchEvent>
 
 export const TOTAL_FILE = 3
 export const TOTAL_RANK = 9
 
+export const gameStates = ['init', 'playing', 'over', 'pause'] as const
+export type GameState = (typeof gameStates)[number]
 export interface State {
   discs: Discs
   selected: {
     draggingElement: DiscElement | null
-    originX: number
-    originY: number
-    currentX?: number
-    currentY?: number
+    originKey?: Key
+    isDragging: boolean
+    originValue?: Rank
   }
   targetElement?: DiscElement | null
   isViewOnly: boolean
   container: HTMLElement
   board: HTMLElement
   bounds: Memo<DOMRectReadOnly>
+  counter: number
+  totalDiscs: number
+  gameState: GameState
+  isAnimated?: boolean
 }
 
 export type BoxType<T> = {

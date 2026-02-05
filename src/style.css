@@ -1,55 +1,176 @@
+:root {
+  box-sizing: border-box;
+}
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
+
 board {
- 
   position: relative;
-  background-color: rgb(119, 119, 108);
- cursor: pointer;
- -webkit-user-select: none;
- -moz-user-select: none;
- -ms-user-select: none;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-origin: border-box;
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 .container {
-
   height: 300px;
   width: 600px;
+}
+#wrap {
+  margin: 4em;
+  padding: 5em;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 1em;
+  display: flex;
+  gap: 2em;
 }
 disc {
   position: absolute;
   display: block;
-  background-color: rgb(114, 131, 104);
-  border: 1px solid black;
-
+  /* background-color: rgb(114, 131, 104); */
+  background-color: transparent;
+  /* border: 1px solid black; */
+  position: absolute;
+  background-size: contain;
+  will-change: transform;
+  /* pointer-events: none; */
+}
+.disc {
+  position: absolute;
+  display: block;
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-origin: border-box;
+  background-image: url(../public/wood.svg);
 }
 
-body{
+body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  background-color: #ffffff;
 }
 
-.disc-1{
-  background-image: url(../public/wood.svg);
-  position: absolute;
-
-  background-size: cover;
-  /* will-change: transform; */
-  /* pointer-events: none; */
+#moves-section {
+  width: 50px;
 }
-.disc-2{
+.disc-1 {
   background-image: url(../public/wood.svg);
-  position: absolute;
-
-  
-  background-size: cover;
-  /* will-change: transform; */
-  /* pointer-events: none; */
 }
-.disc-3{
-  background-image: url(../public/wood.svg);
-  position: absolute;
+.disc-2 {
+  background-image: url(../public/wood2.svg);
+}
 
-  
-  background-size: cover;
-  /* will-change: transform; */
-  /* pointer-events: none; */
+.disc-3 {
+  background-image: url(../public/wood3.svg);
+}
+.disc-4 {
+  background-image: url(../public/wood4.svg);
+}
+.disc-5 {
+  background-image: url(../public/wood5.svg);
+}
+.disc-6 {
+  background-image: url(../public/wood6.svg);
+}
+.disc-7 {
+  background-image: url(../public/wood7.svg);
+}
+.disc-8 {
+  background-image: url(../public/wood8.svg);
+}
+.disc-9 {
+  background-image: url(../public/wood9.svg);
+}
+
+section {
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  height: 100%;
+  width: 100%;
+}
+
+svg {
+  transform: scaleY(-1);
+  margin: -3px;
+}
+#status-bar {
+  background-color: rgb(78, 127, 169);
+  display: flex;
+  border-radius: 0.5em;
+  opacity: 0.5;
+  padding-left: 0;
+  align-items: center;
+}
+
+#status-bar > * {
+  color: white;
+}
+#counter {
+  margin-left: 1em;
+  font-size: 16px;
+}
+.btn {
+  border: none;
+  padding: 15px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  opacity: 1;
+  color: white;
+}
+
+.solveBtn {
+  background-color: #0096c7;
+  margin: 0 1em;
+}
+.restartBtn {
+  background-color: rgb(13, 88, 227);
+}
+
+.btn-section {
+  display: block;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+}
+
+.startBtn {
+  background-color: rgb(6, 63, 44);
+}
+.addBtn {
+  background-color: green;
+}
+.removeBtn {
+  background-color: rgb(0, 41, 128);
+}
+
+.init {
+  opacity: 0.3;
+}
+.playing {
+  opacity: unset;
+}
+
+#moves-section {
+  margin: 0;
+  padding: 0;
+  overflow-y: scroll;
+  height: 350px;
+  scroll-behavior: smooth;
 }

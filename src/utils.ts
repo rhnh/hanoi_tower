@@ -5,7 +5,6 @@ import type {
   Memo,
   Position,
   State,
-  Rank,
   Discs,
 } from './type'
 import { files, ranks } from './type'

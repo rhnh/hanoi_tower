@@ -1,5 +1,5 @@
 import { renderDiscs } from './game'
-import { TOTAL_FILE, TOTAL_RANK, type Key, type Rank, type State } from './type'
+import { TOTAL_FILE, TOTAL_RANK, type Rank, type State } from './type'
 import {
   Box,
   getElementByKey,

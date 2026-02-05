@@ -263,11 +263,7 @@ export function createStatusbar(
               movesSection?.scrollHeight - movesSection?.clientHeight <=
               +movesSection?.scrollTop
           }
-          console.log(
-            isScrolledToBottom,
-            movesSection?.scrollHeight,
-            movesSection?.clientHeight,
-          )
+          //https://stackoverflow.com/questions/18614301/keep-overflow-div-scrolled-to-bottom-unless-user-scrolls-up
           if (!isScrolledToBottom && movesSection) {
             movesSection!.scrollTop =
               movesSection?.scrollHeight - movesSection?.clientHeight
